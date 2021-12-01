@@ -484,7 +484,7 @@ CONFIGURE_OPTS=(
         -Db_ndebug=false
         -Dman=true
         -Dversion-tag=v%{version}-%{release}
-        -Dfallback-hostname=%[0%{?fedora}?"fedora":"localhost"]
+        -Dfallback-hostname=%[0%{?fedora}?"ultramarine":"localhost"]
         -Ddefault-dnssec=no
         # https://bugzilla.redhat.com/show_bug.cgi?id=1867830
         -Ddefault-mdns=no
@@ -1001,6 +1001,9 @@ fi
 %files standalone-sysusers -f .file-list-standalone-sysusers
 
 %changelog
+* Wed Dec 01 2021 Cappy Ishihara <cappy@cappuchino.xyz> - 249.7-2.um35
+- Set fallback hostname to "ultramarine" instead of "fedora", instead of patching release macros for compatibility with upstream.
+
 * Mon Nov 15 2021 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 249.7-2
 - Supress errors from update-helper when selinux is enabled (see #2023332)
 
